@@ -5,6 +5,8 @@ import { BsPersonCircle } from 'react-icons/bs';
 import { Fjalla_One } from 'next/font/google';
 // import localFont from 'next/font/local';
 
+const ROOT_PATH = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? process.env.ROUTES_DEV : process.env.ROUTES_PROD;
+
 const fjalla_one = Fjalla_One({ subsets: ['latin'], weight: '400' });
 // const manga_temple = localFont({ src: '../../public/mangat.ttf', weight: '400' });
 
@@ -14,7 +16,7 @@ export function BrandLink({ href, body, extraClasses }) {
     return (
         <a className={`flex items-center gap-2 font-black text-2xl ${extraClasses || ''}`} href={href}>
             <div className='grow grayscale invert dark:invert-0 brightness-200'>
-                <Image src='/favicon.jpg' alt='Waka Daiko logo' width={40} height={40} />
+                <Image src={`${ROOT_PATH}favicon.jpg`} alt='Waka Daiko logo' width={40} height={40} />
             </div>
             {/* <div className={`shrink ${manga_temple.className || ''} ${cssTextInvert}`}> */}
             <div className={`shrink ${fjalla_one.className} text-3xl ${cssTextInvert}`}>

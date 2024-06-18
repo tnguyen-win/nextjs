@@ -1,13 +1,16 @@
 /** @type {import('next').NextConfig} */
+const basePath = process.env.NODE_ENV === 'production' ? '/nextjs' : '';
+
 const nextConfig = {
     reactStrictMode: false,
     eslint: {
-        dirs: ["app"],
+        dirs: ['app'],
     },
     images: {
         unoptimized: true
     },
-    output: 'export'
+    output: 'export',
+    basePath: basePath,
 }
 
 module.exports = nextConfig

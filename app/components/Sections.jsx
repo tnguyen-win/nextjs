@@ -5,13 +5,11 @@ import { PiScrollFill } from 'react-icons/pi';
 import { BsGeoAltFill } from 'react-icons/bs';
 import { Fragment } from 'react';
 import Link, { ButtonLink } from '../components/Links';
-
-
-
 import { FaCalendarAlt } from 'react-icons/fa';
 import { BsPeopleFill } from 'react-icons/bs';
 import { IoHomeSharp } from 'react-icons/io5';
 
+const ROOT_PATH = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? process.env.ROUTES_DEV : process.env.ROUTES_PROD;
 
 export default function BackgroundGrid() {
     return <div className='z-10 myGrid absolute w-full h-full object-cover'></div>;
@@ -88,7 +86,7 @@ export function Hero1({ title, heading, body, buttons }) {
             {/* <video className='absolute z-10 w-auto min-w-full min-h-full max-w-none' src='/pexels-cottonbro-5659545 (2160p).mp4' playsInline autoPlay muted loop>
                 This browser doesn&apos;t support MP4. Try using a different browser.
             </video> */}
-            <video className='absolute z-10 w-auto min-w-full min-h-full max-w-none' src='/video (1080p).mp4' playsInline autoPlay muted loop>
+            <video className='absolute z-10 w-auto min-w-full min-h-full max-w-none' src={`${ROOT_PATH}video (1080p).mp4`} playsInline autoPlay muted loop>
                 This browser doesn&apos;t support MP4. Try using a different browser.
             </video>
             {/* <img className='absolute z-10 w-auto min-w-full min-h-full max-w-none saturate-50 contrast-125' src='/scene.jpg' /> */}
