@@ -8,7 +8,7 @@ const nextConfig = {
         unoptimized: true
     },
     output: 'export',
-    basePath: "/nextjs"
+    basePath: ""
 }
 
 module.exports = nextConfig
