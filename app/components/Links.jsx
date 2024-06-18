@@ -6,7 +6,7 @@ import { Fjalla_One } from 'next/font/google';
 // import localFont from 'next/font/local';
 
 const ROOT_PATH1 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '/nextjs/';
-const ROOT_PATH2 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '/' : '/nextjs/';
+const ROOT_PATH2 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '/' : '';
 
 const fjalla_one = Fjalla_One({ subsets: ['latin'], weight: '400' });
 // const manga_temple = localFont({ src: '../../public/mangat.ttf', weight: '400' });
@@ -17,7 +17,7 @@ export function BrandLink({ href, body, extraClasses }) {
     return (
         <a className={`flex items-center gap-2 font-black text-2xl ${extraClasses || ''}`} href={ROOT_PATH2}>
             <div className='grow grayscale invert dark:invert-0 brightness-200'>
-                <Image src={`/favicon.jpg`} alt='Waka Daiko logo' width={40} height={40} />
+                <Image src={`${ROOT_PATH1}favicon.jpg`} alt='Waka Daiko logo' width={40} height={40} />
             </div>
             {/* <div className={`shrink ${manga_temple.className || ''} ${cssTextInvert}`}> */}
             <div className={`shrink ${fjalla_one.className} text-3xl ${cssTextInvert}`}>

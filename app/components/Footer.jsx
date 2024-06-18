@@ -5,7 +5,7 @@ import { MdEmail } from 'react-icons/md';
 
 export default function Footer() {
     const ROOT_PATH1 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '/nextjs/';
-    const ROOT_PATH2 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '/' : '/nextjs/';
+    const ROOT_PATH2 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '/' : '';
     const cssHeading = 'font-medium text-black dark:text-white';
     const cssRowChild = 'flex gap-4';
     const cssRowParent = `${cssRowChild} flex-col mt-10 lg:m-0`;
