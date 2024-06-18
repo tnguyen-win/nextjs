@@ -7,8 +7,7 @@ const nextConfig = {
     images: {
         unoptimized: true
     },
-    output: 'export',
-    basePath: "/nextjs"
+    output: 'export'
 }
 
 module.exports = nextConfig
