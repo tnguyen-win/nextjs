@@ -6,10 +6,11 @@ import { BsGeoAltFill } from 'react-icons/bs';
 import { Fragment } from 'react';
 import Link, { ButtonLink } from '../components/Links';
 import { FaCalendarAlt } from 'react-icons/fa';
-import { BsPeopleFill } from 'react-icons/bs';
+import { BsPeopleFill } from 'react-icons/bs'; ``
 import { IoHomeSharp } from 'react-icons/io5';
 
-const ROOT_PATH = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? process.env.ROUTES_DEV : process.env.ROUTES_PROD;
+const ROOT_PATH1 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '/nextjs/';
+const ROOT_PATH2 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '/' : '/nextjs/';
 
 export default function BackgroundGrid() {
     return <div className='z-10 myGrid absolute w-full h-full object-cover'></div>;
@@ -69,24 +70,21 @@ export function Hero1({ title, heading, body, buttons }) {
                     <h1 className={`font-black text-5xl lg:text-7xl`}>
                         {title}
                     </h1>
-                    <h3 className='font-black text-2xl tracking-wider'>
+                    <h2 className='font-black text-2xl tracking-wider'>
                         {heading}
-                    </h3>
+                    </h2>
                     <p className='lg:w-5/6 font-medium text-xs lg:text-xl'>
                         {body}
                     </p>
                     <div className='flex flex-col lg:flex-row gap-4 mx-auto lg:mx-0'>
-                        <ButtonLink type='hero1' body={<Fragment><span className='me-5'><FaCalendarAlt /></span>UPCOMING EVENTS</Fragment>} href='/events' />
-                        {/* <ButtonLink type='hero1' body={<Fragment>UPCOMING EVENTS</Fragment>} href='/events' /> */}
-                        {/* <Link type='hero1' body={<Fragment><span className='me-5'><BsPeopleFill /></span>WORKSHOPS</Fragment>} href='/tryouts' /> */}
-                        <Link type='hero1' body={<Fragment>WORKSHOPS</Fragment>} href='/tryouts' />
+                        {buttons}
                     </div>
                 </div>
             </div>
             {/* <video className='absolute z-10 w-auto min-w-full min-h-full max-w-none' src='/pexels-cottonbro-5659545 (2160p).mp4' playsInline autoPlay muted loop>
                 This browser doesn&apos;t support MP4. Try using a different browser.
             </video> */}
-            <video className='absolute z-10 w-auto min-w-full min-h-full max-w-none' src={`${ROOT_PATH}video (1080p).mp4`} playsInline autoPlay muted loop>
+            <video className='absolute z-10 w-auto min-w-full min-h-full max-w-none' src={`${ROOT_PATH1}video (1080p).mp4`} playsInline autoPlay muted loop>
                 This browser doesn&apos;t support MP4. Try using a different browser.
             </video>
             {/* <img className='absolute z-10 w-auto min-w-full min-h-full max-w-none saturate-50 contrast-125' src='/scene.jpg' /> */}
@@ -102,17 +100,17 @@ export function Hero2({ title, heading, body, buttons }) {
             <div className={`${depth_hero_background || ''} m-auto`}>
                 <div className='flex flex-col gap-4 lg:gap-6 my-16'>
                     {title ? (
-                        <h1 className='font-black text-5xl lg:text-6xl'>
+                        <h1 className='font-black text-5xl lg:text-7xl'>
                             {title}
                         </h1>
                     ) : ''}
                     {heading ? (
-                        <h2 className='text-xl lg:text-2xl'>
+                        <h2 className='font-black text-2xl tracking-wider'>
                             {heading}
                         </h2>
                     ) : ''}
                     {body ? (
-                        <div className={`text-xs lg:text-sm ${cssColorDefault || ''}`}>
+                        <div className={`font-medium text-xs lg:text-xl ${cssColorDefault || ''}`}>
                             {body}
                         </div>
                     ) : ''}
@@ -136,7 +134,7 @@ export function Hero2({ title, heading, body, buttons }) {
 export function Features() {
     const listCards = [
         {
-            link: '/about/team',
+            link: 'about/team',
             icon: <FaPeopleGroup size={iconSize24} />,
             heading: 'WHO WE ARE',
             subheading: 'Ages 8-22',
@@ -145,7 +143,7 @@ export function Features() {
             </Fragment>
         },
         {
-            link: '/news/events',
+            link: 'news/events',
             icon: <FaCalendarDays size={iconSize24} />,
             heading: 'PERFORMANCES', subheading: 'Proudly Performed At:',
             body:
@@ -184,7 +182,7 @@ export function Features() {
                 </Fragment>
         },
         {
-            link: '/about/culture',
+            link: 'about/culture',
             icon: <FaHandshake size={iconSize24} />,
             heading: 'COMMUNITY',
             subheading: 'Giving Back',
@@ -194,7 +192,7 @@ export function Features() {
                 </Fragment>
         },
         {
-            link: '/about/community',
+            link: 'about/community',
             icon: <PiScrollFill size={iconSize24} />,
             heading: 'CULTURE',
             subheading: 'Origin of Taiko',
@@ -207,7 +205,7 @@ export function Features() {
 
     const Card = listCards.map((item, i) =>
         <li key={i}>
-            <a className={`lg:w-[384px] h-full flex gap-2 rounded-lg megaHover:bg-[rgb(95%,95%,95%)] dark:megaHover:bg-[rgb(5%,5%,5%)] border-[1px] ${cssBorderDefault || ''} mx-5 lg:m-0 p-5`} href={item.link}>
+            <a className={`lg:w-[384px] h-full flex gap-2 rounded-lg megaHover:bg-[rgb(95%,95%,95%)] dark:megaHover:bg-[rgb(5%,5%,5%)] border-[1px] ${cssBorderDefault || ''} mx-5 lg:m-0 p-5`} href={`${ROOT_PATH1}${item.link}`}>
                 <div className={`rounded-full ${cssBackgroundSecondary || ''} border-[1px] ${cssBorderDefault || ''} mb-auto p-4`}>
                     {item.icon}
                 </div>
@@ -248,16 +246,20 @@ export function Homepage() {
         </Fragment>
     } buttons={
         <Fragment>
-            <ButtonLink type='hero1' body='EVENTS' href='/news/events' invert={true} />
-            <Link type='hero1' body='TRYOUTS' href='/news/tryouts' invert={true} />
+            {/* <ButtonLink type='hero1' body='EVENTS' href='/news/events' invert={true} />
+            <Link type='hero1' body='TRYOUTS' href='/news/tryouts' invert={true} /> */}
+            {/* <ButtonLink type='hero1' body={<Fragment>UPCOMING EVENTS</Fragment>} href='/events' /> */}
+            {/* <Link type='hero1' body={<Fragment><span className='me-5'><BsPeopleFill /></span>WORKSHOPS</Fragment>} href='/tryouts' /> */}
+            <ButtonLink type='hero1' body={<Fragment><span className='me-5'><FaCalendarAlt /></span>UPCOMING EVENTS</Fragment>} href={`${ROOT_PATH1}news/events`} />
+            <Link type='hero1' body={<Fragment>WORKSHOPS</Fragment>} href='/news/tryouts' />
         </Fragment>
     } />;
 }
 
 export function WIP() {
-    return <Hero2 title='WIP' heading='Under Construction' body='Try coming back later.' buttons={<ButtonLink type='hero2' body='RETURN HOME' href='/' />} />;
+    return <Hero2 title='WIP' heading='Under Construction' body='Try coming back later.' buttons={<ButtonLink type='hero2' body='RETURN HOME' href={ROOT_PATH2} />} />;
 }
 
 export function Error() {
-    return <Hero2 type='hero2' title='404' heading='Page Not Found' body='Whatever you&apos;re looking for doesn&apos;t exist here.' buttons={< ButtonLink type='hero2' body='RETURN HOME' href='/' />} />;
+    return <Hero2 type='hero2' title='404' heading='Page Not Found' body='Whatever you&apos;re looking for doesn&apos;t exist here.' buttons={<ButtonLink type='hero2' body='RETURN HOME' href={ROOT_PATH2} />} />;
 }

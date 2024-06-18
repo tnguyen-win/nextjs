@@ -5,7 +5,8 @@ import { BsPersonCircle } from 'react-icons/bs';
 import { Fjalla_One } from 'next/font/google';
 // import localFont from 'next/font/local';
 
-const ROOT_PATH = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? process.env.ROUTES_DEV : process.env.ROUTES_PROD;
+const ROOT_PATH1 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '/nextjs/';
+const ROOT_PATH2 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '/' : '/nextjs/';
 
 const fjalla_one = Fjalla_One({ subsets: ['latin'], weight: '400' });
 // const manga_temple = localFont({ src: '../../public/mangat.ttf', weight: '400' });
@@ -14,9 +15,9 @@ const cssTextInvert = 'text-black dark:text-white';
 
 export function BrandLink({ href, body, extraClasses }) {
     return (
-        <a className={`flex items-center gap-2 font-black text-2xl ${extraClasses || ''}`} href={href}>
+        <a className={`flex items-center gap-2 font-black text-2xl ${extraClasses || ''}`} href={ROOT_PATH2}>
             <div className='grow grayscale invert dark:invert-0 brightness-200'>
-                <Image src={`${ROOT_PATH}favicon.jpg`} alt='Waka Daiko logo' width={40} height={40} />
+                <Image src={`/favicon.jpg`} alt='Waka Daiko logo' width={40} height={40} />
             </div>
             {/* <div className={`shrink ${manga_temple.className || ''} ${cssTextInvert}`}> */}
             <div className={`shrink ${fjalla_one.className} text-3xl ${cssTextInvert}`}>
@@ -57,7 +58,7 @@ export default function Link({ type, href, body, invert, extraClasses }) {
     }
 
     return (
-        <a className={`group flex items-center ${c || ''} ${extraClasses || ''}`} href={href}>
+        <a className={`group flex items-center ${c || ''} ${extraClasses || ''}`} href={`${ROOT_PATH1}${href}`}>
             {type === 'hero1' ? <Fragment><span className={`flex items-center font-black text-white`}>{body}</span><span className='transition-transform group-hover:translate-x-1 ms-2'>-&gt;</span></Fragment> : body}
         </a>
     );
@@ -82,7 +83,7 @@ export function ButtonLink({ type, href, body, invert }) {
     }
 
     return (
-        <a className={`flex items-center justify-center font-black lg:text-lg px-4 py-2 ${c || ''}`} href={href}>
+        <a className={`flex items-center justify-center font-black lg:text-lg px-4 py-2 ${c || ''}`} href={`${ROOT_PATH1}${href}`}>
             {type === 'navbar' ? <span className={`w-full text-center lg:w-max rounded-lg ${cssButtonDefault} mx-5 lg:m-0 p-2 lg:px-2 lg:py-1`}>{body}</span> : body}
         </a >
     );

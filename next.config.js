@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
-const basePath = process.env.NODE_ENV === 'production' ? '/nextjs' : '';
 
+const ROOT_PATH = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '/nextjs/';
 const nextConfig = {
     reactStrictMode: false,
     eslint: {
@@ -10,7 +10,7 @@ const nextConfig = {
         unoptimized: true
     },
     output: 'export',
-    basePath: basePath,
+    basePath: ROOT_PATH
 }
 
 module.exports = nextConfig

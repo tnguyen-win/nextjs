@@ -7,6 +7,7 @@ import Link, { BrandLink, ProfileLink, ButtonLink } from './Links';
 import MobileSelector, { SearchSelector, ThemeSelector, LanguageSelector } from './Selectors';
 
 export default function Navbar() {
+    const ROOT_PATH = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '/nextjs/';
     const cssTextInvert = 'text-white dark:text-black';
     // const cssPill = `absolute -top-2 -end-2 w-6 h-6 flex items-center justify-center rounded-lg text-[0.75rem] font-bold text-black dark:text-white`;
     const cssPill = 'invisible lg:visible text-black dark:text-white ms-2';
@@ -22,7 +23,7 @@ export default function Navbar() {
     return (
         <>
             <header className={`${depth_navbar_menu || ''} sticky top-0 start-0 bg-inherit`}>
-                <a className='h-8 flex items-center justify-center bg-blue-400 text-center text-xs' href='/news/events'>
+                <a className='h-8 flex items-center justify-center bg-blue-400 text-center text-xs' href={`${ROOT_PATH}news/events`}>
                     <span className='rounded font-black bg-blue-300 text-blue-500 px-2 py-[1px]'>
                         NEW
                     </span>
@@ -38,16 +39,16 @@ export default function Navbar() {
                         {/* Navbar - Left */}
                         <div className='flex flex-col lg:flex-row lg:me-auto'>
                             <div className={`h-16 flex items-center ${cssBorder} lg:border-0`}>
-                                <BrandLink href='/' body='WAKA DAIKO' extraClasses='p-6 lg:px-6' />
+                                <BrandLink href={ROOT_PATH} body='WAKA DAIKO' extraClasses='p-6 lg:px-6' />
                                 <MobileSelector collapse={collapse} handleMobile={() => setCollapse(!collapse)} />
                             </div>
                             <div className={`${collapse ? 'hidden ' : ''}lg:flex flex-col lg:flex-row ${cssBackground}`}>
                                 {/* <Link type='navbar' href='/news' body={<Fragment>News<div className='relative p-3'><div className={cssPill}>20</div></div></Fragment>} /> */}
-                                <Link type='navbar' href='/news' body={<Fragment>News<sup className={cssPill}>3</sup></Fragment>} />
-                                <Link type='navbar' href='/learning' body={<Fragment>Learning<sup className={cssPill}>46</sup></Fragment>} />
-                                <Link type='navbar' href='/about' body='About' />
-                                <Link type='navbar' href='/contact' body='Contact' />
-                                <Link type='navbar' href='/abc' body='404' />
+                                <Link type='navbar' href={`${ROOT_PATH}news`} body={<Fragment>News<sup className={cssPill}>3</sup></Fragment>} />
+                                <Link type='navbar' href={`${ROOT_PATH}learning`} body={<Fragment>Learning<sup className={cssPill}>46</sup></Fragment>} />
+                                <Link type='navbar' href={`${ROOT_PATH}about`} body='About' />
+                                <Link type='navbar' href={`${ROOT_PATH}contact`} body='Contact' />
+                                <Link type='navbar' href={`${ROOT_PATH}abc`} body='404' />
                             </div>
                         </div>
                         {/* Navbar - Right */}
@@ -59,7 +60,7 @@ export default function Navbar() {
                                 <LanguageSelector />
                                 <ProfileLink href='https://sites.google.com/view/wakadaikowebsite/' />
                             </div>
-                            <span className={`flex items-center justify-center ${cssBackground}`}><ButtonLink type='navbar' href='/news/press' body='PRESS' /></span>
+                            <span className={`flex items-center justify-center ${cssBackground}`}><ButtonLink type='navbar' href={`${ROOT_PATH}news/press`} body='PRESS' /></span>
                         </div>
                     </div>
                 </nav>
