@@ -1,18 +1,35 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
 module.exports = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
-  theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+    content: [
+        './pages/**/*.{js,ts,jsx,tsx,mdx}',
+        './components/**/*.{js,ts,jsx,tsx,mdx}',
+        './app/**/*.{js,ts,jsx,tsx,mdx}'
+    ],
+    theme: {
+        // extend: {
+        //     keyframes: {
+        //         coin: {
+        //             '100%': { transform: 'rotateY(360deg)' }
+        //         }
+        //     },
+        //     animation: {
+        //         coin: 'coin 4s linear infinite'
+        //     }
+        // },
+        // screens: {
+        //     'xs': '0',
+        //     'sm': '576px',
+        //     'md': '786px',
+        //     'lg': '992px',
+        //     'xl': '1200px',
+        //     'xxl': '1440px'
+        // },
     },
-  },
-  plugins: [],
+    plugins: [
+        plugin(function ({ addVariant }) {
+            addVariant('megaHover', ['&:hover', '&:active', '&:focus'])
+        })
+    ],
+    darkMode: 'class'
 }
