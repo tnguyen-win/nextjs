@@ -9,8 +9,10 @@ import { FaCalendarAlt } from 'react-icons/fa';
 import { BsPeopleFill } from 'react-icons/bs'; ``
 import { IoHomeSharp } from 'react-icons/io5';
 
-const ROOT_PATH1 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '/nextjs';
-const ROOT_PATH2 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '/' : '/nextjs';
+const ROOT_PATH1 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '/nextjs/';
+const ROOT_PATH2 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '/' : '/nextjs/';
+// const ROOT_PATH1 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '';
+// const ROOT_PATH2 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '/' : '/';
 
 export default function BackgroundGrid() {
     return <div className='z-10 myGrid absolute w-full h-full object-cover'></div>;

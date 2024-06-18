@@ -7,7 +7,8 @@ import Link, { BrandLink, ProfileLink, ButtonLink } from './Links';
 import MobileSelector, { SearchSelector, ThemeSelector, LanguageSelector } from './Selectors';
 
 export default function Navbar() {
-    const ROOT_PATH = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '/nextjs';
+    const ROOT_PATH = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '/nextjs/';
+    // const ROOT_PATH = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '/nextjs/';
     const cssTextInvert = 'text-white dark:text-black';
     // const cssPill = `absolute -top-2 -end-2 w-6 h-6 flex items-center justify-center rounded-lg text-[0.75rem] font-bold text-black dark:text-white`;
     const cssPill = 'invisible lg:visible text-black dark:text-white ms-2';

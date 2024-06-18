@@ -5,8 +5,10 @@ import { BsPersonCircle } from 'react-icons/bs';
 import { Fjalla_One } from 'next/font/google';
 // import localFont from 'next/font/local';
 
-const ROOT_PATH1 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '/nextjs';
-const ROOT_PATH2 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '/' : '/nextjs';
+const ROOT_PATH1 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '/nextjs/';
+const ROOT_PATH2 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '/' : '/nextjs/';
+// const ROOT_PATH1 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '';
+// const ROOT_PATH2 = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '/' : '/';
 
 const fjalla_one = Fjalla_One({ subsets: ['latin'], weight: '400' });
 // const manga_temple = localFont({ src: '../../public/mangat.ttf', weight: '400' });

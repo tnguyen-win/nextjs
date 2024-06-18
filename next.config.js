@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const ROOT_PATH = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '/nextjs';
+// const ROOT_PATH = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : '';
 const nextConfig = {
     reactStrictMode: false,
     eslint: {
