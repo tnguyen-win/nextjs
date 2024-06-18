@@ -1,4 +1,4 @@
-import { WIP } from '../../components/sections';
+import { WIP } from '../../components/Sections';
 
 export default function Community() {
     return <WIP />;
